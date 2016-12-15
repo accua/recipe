@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Create Recipe</h2>
+  <form id="new_recipe_form" action="/recipes" method="post">
+    <div class="form-group">
+      <input type="text" name="recipe" class="validate">
+      <label for="recipe">Recipe Name</label>
+      <input type="text" name="ingredient[]" class="validate"><input placeholder='amount' name="unit_amount[]">
+      <label class="starting_ing" for="ingredient">Ingredient</label>
+      <p class="extend_ing"> + Add additional Ingredient </p>
+      <input type="text" name="instruction[]" class="validate">
+      <label class="starting_instr" for="instruction">Instruction</label>
+      <p class="extend_instr"> + Add Next Instruction </p>
+      <input type="text" name="tag[]" class="validate">
+      <label class="starting_tag" for="tag">Tag</label>
+      <p class="extend_tag"> + Add Another Tag </p>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Submit Recipe</button>
+  </form>
+
+
+
+</div>

@@ -1,0 +1,4 @@
+form#new_recipe_form p {
+  color: turquoise;
+  font-size: .8rem;
+}

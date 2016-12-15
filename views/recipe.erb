@@ -1,0 +1,41 @@
+<div class="col-sm-6">
+  <ul>
+    <% @recipe.tags.each do |tag| %>
+    <h5><li><%= tag.name %></li></h5>
+    <% end %>
+  </ul>
+  <h1>Ingredients:</h1>
+  <ul>
+    <% @recipe.prep_lists.each do |line| %>
+    <h5><li><%= line.unit_amount %> - <%= line.ingredient.name %></li></h5>
+    <% end %>
+  </ul>
+  <h1>Instructions:</h1>
+  <ul>
+    <% @recipe.instructions.each do |instruction| %>
+    <h5><li><%= instruction.order_number %>. <%= instruction.description %></li></h5>
+    <% end %>
+  </ul>
+</div>
+<div class="col-sm-6">
+  <form id="new_recipe_form" action="/recipes/:id" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input type="text" name="recipe" class="validate">
+    <label for="recipe">Recipe Name</label>
+    <div class="col-sm-3">
+      <input placeholder='amount' name="unit_amount[]">
+    </div>
+    <div class="col-sm-6">
+      <input type="text" name="ingredient[]" class="validate">
+    </div>
+    <label class="starting_ing" for="ingredient">Ingredient</label>
+    <p class="extend_ing"> + Add additional Ingredient </p>
+    <input type="text" name="instruction[]" class="validate">
+    <label class="starting_instr" for="instruction">Instruction</label>
+    <p class="extend_instr"> + Add Next Instruction </p>
+    <input type="text" name="tag[]" class="validate">
+    <label class="starting_tag" for="tag">Tag</label>
+    <p class="extend_tag"> + Add Another Tag </p>
+    <button class="btn waves-effect waves-light" type="submit">Update Recipe</button>
+  </form>
+</div>
